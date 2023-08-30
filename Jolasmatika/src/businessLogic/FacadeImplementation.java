@@ -2,6 +2,7 @@ package businessLogic;
 
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -95,24 +96,14 @@ public class FacadeImplementation implements Facade {
     /**
      * Converts the labyrinth and selected blocks into a playable game
      */
-    public void bihurtu() {
-    	int[][] map = ((Labirintoa) game).getMapa();
-    	System.out.println("Mapa: ");
-    	for (int j = 0; j < 7; j++) {
-			for (int i = 0; i < 7; i++) {
-				System.out.print(map[i][j] + ", ");
-			}
-			System.out.println();
-    	}
-    	System.out.println("Onartutako blokeak: ");
-    	ArrayList<Blokea> blokeak = game.getOnartutakoBlokeak();
-    	for (Blokea bloke : blokeak) System.out.println(bloke.getMota());
-    	
-    	System.out.print("Bloke kopuru maximoa: ");
-    	if(game.getBlokeKopurua() == 0) System.out.print("Infinito");
-    	else System.out.print(game.getBlokeKopurua());
-    	
-    	//this.converter = new BihurtzaileaHTML(game);
+    public void bihurtu(String jokoIzena, String jolasMota) {
+    	converter = new BihurtzaileaHTML();
+    	try {
+			converter.bihurtu(game, jokoIzena, jolasMota);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     /**Changes the designs of the maze and the player character

@@ -24,7 +24,6 @@ public class Argumentua {
      * @return mota
      */
     public String getMota() {
-        // TODO implement here
         return mota;
     }
 
@@ -32,7 +31,6 @@ public class Argumentua {
      * @return izena
      */
     public String getIzena() {
-        // TODO implement here
         return izena;
     }
 

@@ -2,7 +2,16 @@ package converter;
 
 
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+
+import javax.swing.JFileChooser;
+
+import games.Blokea;
 import games.Jolasa;
+import games.Labirintoa;
 
 /**
  * 
@@ -14,15 +23,60 @@ public class BihurtzaileaHTML extends Bihurtzailea{
      * Constructor
      * @param jolasa
      */
-    public BihurtzaileaHTML(Jolasa jolasa) {
-        super(jolasa);
+    public BihurtzaileaHTML() {
+        super();
     }
 
     /**
      * Converts game into playable HTML file.
+     * @throws IOException 
      */
-    public void bihurtu() {
-        // TODO implement here
+    public void bihurtu(Jolasa jolasa, String jokoIzena, String jolasMota) throws IOException {
+    	int[][] map = ((Labirintoa) jolasa).getMapa();
+    	System.out.println("Mapa: ");
+    	for (int j = 0; j < 7; j++) {
+			for (int i = 0; i < 7; i++) {
+				System.out.print(map[i][j] + ", ");
+			}
+			System.out.println();
+    	}
+    	System.out.println("Onartutako blokeak: ");
+    	ArrayList<Blokea> blokeak = jolasa.getOnartutakoBlokeak();
+    	for (Blokea bloke : blokeak) System.out.println(bloke.getMota());
+    	
+    	String documents = new JFileChooser().getFileSystemView().getDefaultDirectory().toString().substring(2); //substring is used to delete the "C:", so it can be replaced by "c"
+    	documents = documents.replace('\\', '/'); //CygWin only accepts regular slashes
+    	
+    	System.out.println(documents);
+    	
+    	System.out.print("Bloke kopuru maximoa: ");
+    	if(jolasa.getBlokeKopurua() == 0) System.out.print("Infinito");
+    	else System.out.print(jolasa.getBlokeKopurua());
+    	
+    	ProcessBuilder eraikitzailea = new ProcessBuilder("c:\\cygwin64\\Cygwin.bat");
+		final Process prozesua = eraikitzailea.start();
+		
+		BufferedWriter idazlea = new BufferedWriter(new OutputStreamWriter(prozesua.getOutputStream()));
+		
+		agindu(idazlea, "rm -rf /cygdrive/c/Users/PC/Desktop/JokoBerria\n");
+		
+		
+		agindu(idazlea, "cd /cygdrive/c" + documents + "/blockly-games-iruzkinak\n");
+		agindu(idazlea, "make maze\n");
+		
+		agindu(idazlea, "mkdir -p /cygdrive/c/Users/PC/Desktop/JokoBerria\n");
+
+		agindu(idazlea, "cp appengine/maze.html /cygdrive/c/Users/PC/Desktop/JokoBerria\n");
+		agindu(idazlea, "cp -r appengine/common /cygdrive/c/Users/PC/Desktop/JokoBerria/common\n");
+		agindu(idazlea, "cp -r appengine/maze /cygdrive/c/Users/PC/Desktop/JokoBerria/maze\n");
+		
+		agindu(idazlea, "exit\n");
+
+    }
+    
+    private void agindu(BufferedWriter idazlea, String agindua) throws IOException {
+    	idazlea.write(agindua);
+    	idazlea.flush();
     }
 
 }

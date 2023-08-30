@@ -31,7 +31,7 @@ public interface Facade {
     /**
      * Converts the labyrinth and selected blocks into a playable game
      */
-    public void bihurtu();
+    public void bihurtu(String jokoIzena, String jolasMota);
 
     /**Changes the designs of the maze and the player character
      * @param diseinuak. A list of the new designs.

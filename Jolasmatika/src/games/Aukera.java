@@ -37,7 +37,6 @@ public class Aukera {
      * @return textua
      */
     public String getTextua() {
-        // TODO implement here
         return textua;
     }
 
