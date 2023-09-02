@@ -1,6 +1,5 @@
 package userInterfaces.maze;
 
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -17,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import businessLogic.Facade;
-import exceptions.WrongLayoutException;
 import games.Blokea;
 
 /**
@@ -27,17 +25,19 @@ public class BlocksGUI {
 	
 	private JFrame frame;
 	
-	private JButton btnBack = new JButton(ResourceBundle.getBundle("languages/Etiketak").getString("Back"));
-	private JButton btnContinue = new JButton(ResourceBundle.getBundle("languages/Etiketak").getString("Continue"));
+	String bundleSource = "languages/Etiketak";
 	
-	private JLabel title = new JLabel(ResourceBundle.getBundle("languages/Etiketak").getString("BlocksTitle"), SwingConstants.CENTER);
-	private JLabel instructions = new JLabel(ResourceBundle.getBundle("languages/Etiketak").getString("BlocksInstructions"), SwingConstants.CENTER);
+	private JButton btnBack = new JButton(ResourceBundle.getBundle(bundleSource).getString("Back"));
+	private JButton btnContinue = new JButton(ResourceBundle.getBundle(bundleSource).getString("Continue"));
 	
-	private JLabel lblMove = new JLabel(ResourceBundle.getBundle("languages/Etiketak").getString("BlocksMove"));
-	private JLabel lblTurn = new JLabel(ResourceBundle.getBundle("languages/Etiketak").getString("BlocksTurn"));
-	private JLabel lblIf = new JLabel(ResourceBundle.getBundle("languages/Etiketak").getString("BlocksIf"));
-	private JLabel lblIfElse = new JLabel(ResourceBundle.getBundle("languages/Etiketak").getString("BlocksIfElse"));
-	private JLabel lblRepUntil = new JLabel(ResourceBundle.getBundle("languages/Etiketak").getString("BlocksRepUntil"));
+	private JLabel title = new JLabel(ResourceBundle.getBundle(bundleSource).getString("BlocksTitle"), SwingConstants.CENTER);
+	private JLabel instructions = new JLabel(ResourceBundle.getBundle(bundleSource).getString("BlocksInstructions"), SwingConstants.CENTER);
+	
+	private JLabel lblMove = new JLabel(ResourceBundle.getBundle(bundleSource).getString("BlocksMove"));
+	private JLabel lblTurn = new JLabel(ResourceBundle.getBundle(bundleSource).getString("BlocksTurn"));
+	private JLabel lblIf = new JLabel(ResourceBundle.getBundle(bundleSource).getString("BlocksIf"));
+	private JLabel lblIfElse = new JLabel(ResourceBundle.getBundle(bundleSource).getString("BlocksIfElse"));
+	private JLabel lblRepUntil = new JLabel(ResourceBundle.getBundle(bundleSource).getString("BlocksRepUntil"));
 	
 	private JCheckBox chkMove = new JCheckBox();
 	private JCheckBox chkTurn = new JCheckBox();
@@ -45,8 +45,8 @@ public class BlocksGUI {
 	private JCheckBox chkIfElse = new JCheckBox();
 	private JCheckBox chkRepUntil = new JCheckBox();
 	
-	private JLabel lblKopurua = new JLabel(ResourceBundle.getBundle("languages/Etiketak").getString("BlocksAmount"), SwingConstants.CENTER);
-	private JComboBox kopList = new JComboBox();
+	private JLabel lblKopurua = new JLabel(ResourceBundle.getBundle(bundleSource).getString("BlocksAmount"), SwingConstants.CENTER);
+	private JComboBox<Comparable> kopList = new JComboBox<Comparable>();
 	
 	private JFrame previousFrame;
 	private Facade facadeImplementation;
@@ -76,14 +76,16 @@ public class BlocksGUI {
 		frame.setResizable(false);
 		frame.setTitle("JolasMAKER");
 		
+		String fontType = "Verdana";
+		
 		//labels
 		frame.getContentPane().add(title);
 		title.setBounds(150, 50, 700, 50);
-		title.setFont(new Font("Verdana", Font.PLAIN, 40));
+		title.setFont(new Font(fontType, Font.PLAIN, 40));
 
 		frame.getContentPane().add(instructions);
 		instructions.setBounds(100, 175, 800, 50);
-		instructions.setFont(new Font("Verdana", Font.PLAIN, 30));
+		instructions.setFont(new Font(fontType, Font.PLAIN, 30));
 		
 		//blockSelector
 		Container blocks = new Container();
@@ -92,23 +94,23 @@ public class BlocksGUI {
 		
 		blocks.add(lblMove); //Add labels to the block selector
 		blocks.add(chkMove);
-		lblMove.setFont(new Font("Verdana", Font.PLAIN, 25));
+		lblMove.setFont(new Font(fontType, Font.PLAIN, 25));
 		
 		blocks.add(lblTurn);
 		blocks.add(chkTurn);
-		lblTurn.setFont(new Font("Verdana", Font.PLAIN, 25));
+		lblTurn.setFont(new Font(fontType, Font.PLAIN, 25));
 		
 		blocks.add(lblIf);
 		blocks.add(chkIf);
-		lblIf.setFont(new Font("Verdana", Font.PLAIN, 25));
+		lblIf.setFont(new Font(fontType, Font.PLAIN, 25));
 		
 		blocks.add(lblIfElse);
 		blocks.add(chkIfElse);
-		lblIfElse.setFont(new Font("Verdana", Font.PLAIN, 25));
+		lblIfElse.setFont(new Font(fontType, Font.PLAIN, 25));
 		
 		blocks.add(lblRepUntil);
 		blocks.add(chkRepUntil);
-		lblRepUntil.setFont(new Font("Verdana", Font.PLAIN, 25));
+		lblRepUntil.setFont(new Font(fontType, Font.PLAIN, 25));
 		
 		
 		
@@ -118,18 +120,18 @@ public class BlocksGUI {
 		//kopList
 		frame.getContentPane().add(lblKopurua);
 		lblKopurua.setBounds(240, 650, 250, 50);
-		lblKopurua.setFont(new Font("Verdana", Font.PLAIN, 30));
+		lblKopurua.setFont(new Font(fontType, Font.PLAIN, 30));
 		
 		frame.getContentPane().add(kopList);
 		kopList.setBounds(510, 650, 250, 50);
-		kopList.setFont(new Font("Verdana", Font.PLAIN, 30));
+		kopList.setFont(new Font(fontType, Font.PLAIN, 30));
 		kopList.addItem("Inf");
 		for(int i=1; i<=10; i++) kopList.addItem(i);
 		
 		//btnBack
 		frame.getContentPane().add(btnBack);
 		btnBack.setBounds(240, 800, 250, 50);
-		btnBack.setFont(new Font("Verdana", Font.PLAIN, 30));
+		btnBack.setFont(new Font(fontType, Font.PLAIN, 30));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.setVisible(false);
@@ -140,7 +142,7 @@ public class BlocksGUI {
 		//btnContinue
 		frame.getContentPane().add(btnContinue);
 		btnContinue.setBounds(510, 800, 250, 50);
-		btnContinue.setFont(new Font("Verdana", Font.PLAIN, 30));
+		btnContinue.setFont(new Font(fontType, Font.PLAIN, 30));
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ArrayList<Blokea> blokeak = new ArrayList<Blokea>();
