@@ -10,7 +10,7 @@ import businessLogic.FacadeImplementation;
 public class ApplicationLauncher {
 
 	public static void main(String[] args) {
-		Locale.setDefault(new Locale("eus"));
+		Locale.setDefault(new Locale("eu"));
 
 		try {
 			Facade appFacadeInterface = new FacadeImplementation();

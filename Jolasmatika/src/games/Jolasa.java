@@ -7,14 +7,14 @@ import java.util.ArrayList;
  */
 public abstract class Jolasa {
 	
-    private String hasierakoPista;
+    private String hasierakoPista = "this is a clue";
     private int blokeKopurua;
     private ArrayList<Blokea> onartutakoBlokeak;
     		
     /**
      * Constructor
      */
-    public Jolasa() {
+    protected Jolasa() {
     }
 
     /**

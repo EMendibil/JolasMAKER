@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 import converter.Bihurtzailea;
+import exceptions.KeyNotFoundException;
 import exceptions.WrongLayoutException;
 import games.Blokea;
 import games.Jolasa;
@@ -30,8 +31,9 @@ public interface Facade {
 
     /**
      * Converts the labyrinth and selected blocks into a playable game
+     * @throws KeyNotFoundException 
      */
-    public void bihurtu(String jokoIzena, String jolasMota);
+    public void bihurtu(String jokoIzena, String jolasMota) throws KeyNotFoundException;
 
     /**Changes the designs of the maze and the player character
      * @param diseinuak. A list of the new designs.

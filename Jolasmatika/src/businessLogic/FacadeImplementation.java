@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 
 import converter.Bihurtzailea;
 import converter.BihurtzaileaHTML;
+import exceptions.KeyNotFoundException;
 import exceptions.WrongLayoutException;
 import games.Blokea;
 import games.Jolasa;
@@ -95,8 +96,9 @@ public class FacadeImplementation implements Facade {
 
     /**
      * Converts the labyrinth and selected blocks into a playable game
+     * @throws KeyNotFoundException 
      */
-    public void bihurtu(String jokoIzena, String jolasMota) {
+    public void bihurtu(String jokoIzena, String jolasMota) throws KeyNotFoundException {
     	converter = new BihurtzaileaHTML();
     	try {
 			converter.bihurtu(game, jokoIzena, jolasMota);

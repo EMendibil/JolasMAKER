@@ -77,16 +77,16 @@ public class StartGUI {
 				switch (choice)
 				{
 					case 0: 
-						Locale.setDefault(new Locale("eus"));
+						Locale.setDefault(new Locale("eu"));
 						break;
 					case 1:
-						Locale.setDefault(new Locale("esp"));
+						Locale.setDefault(new Locale("es"));
 						break;
 					case 2:
-						Locale.setDefault(new Locale("eng"));
+						Locale.setDefault(new Locale("en"));
 						break;
 					default:
-						Locale.setDefault(new Locale("eus"));
+						Locale.setDefault(new Locale("eu"));
 						break;
 				}
 				update();

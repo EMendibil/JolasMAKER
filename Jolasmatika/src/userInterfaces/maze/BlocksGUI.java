@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import businessLogic.Facade;
+import exceptions.KeyNotFoundException;
 import games.Blokea;
 
 /**
@@ -155,7 +156,11 @@ public class BlocksGUI {
 				if (chkRepUntil.isSelected()) blokeak.add(new Blokea("maze_forever", ResourceBundle.getBundle("languages/Etiketak").getString("BlocksRepUntil"), false, false, "red", ""));
 				
 				facadeImplementation.blokeakTxertatu(blokeak, kopList.getSelectedIndex());
-				facadeImplementation.bihurtu("patata", "maze");
+				try {
+					facadeImplementation.bihurtu("jokoa", "maze");
+				} catch (KeyNotFoundException e) {
+					e.printStackTrace();
+				}
 			}
 		});
     }
