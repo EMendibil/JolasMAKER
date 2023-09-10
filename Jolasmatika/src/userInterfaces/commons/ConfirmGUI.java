@@ -13,7 +13,8 @@ public class ConfirmGUI {
     }
 
     /**
-     * 
+     * Initializes the interface
+     * @param appFacadeInterface 
      */
     public void bihurtu() {
         // TODO implement here

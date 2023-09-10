@@ -9,7 +9,6 @@ import javax.swing.ImageIcon;
 import converter.Bihurtzailea;
 import exceptions.KeyNotFoundException;
 import exceptions.WrongLayoutException;
-import games.Blokea;
 import games.Jolasa;
 
 /**
@@ -17,6 +16,8 @@ import games.Jolasa;
  */
 public interface Facade {
 
+
+	
     /**Sets the layout of the labyrinth
      * @param mapa the matrix of the layout of the labyrinth
      * @throws WrongLayoutException if the start and finish are not connected
@@ -27,7 +28,7 @@ public interface Facade {
      * @param blokeak. A list of the blocks the user has chosen
      * @param kopuruak. The maximum amount of times each block can be used.
      */
-    public void blokeakTxertatu(ArrayList<Blokea> blokeak, int kopurua);
+    public void blokeakTxertatu(ArrayList<String> blokeak, int kopurua);
 
     /**
      * Converts the labyrinth and selected blocks into a playable game

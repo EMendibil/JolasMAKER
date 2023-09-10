@@ -17,7 +17,6 @@ import javax.swing.SwingConstants;
 
 import businessLogic.Facade;
 import exceptions.KeyNotFoundException;
-import games.Blokea;
 
 /**
  * 
@@ -55,6 +54,7 @@ public class BlocksGUI {
     /**
      * Constructor
      * @param appFacadeInterface 
+     * @param previousFrame the previous interface
      */
     public BlocksGUI(Facade appFacadeInterface, JFrame previousFrame) {
     	this.facadeImplementation = appFacadeInterface;
@@ -92,8 +92,9 @@ public class BlocksGUI {
 		Container blocks = new Container();
 		GridLayout blocksLayout = new GridLayout(5,2);
 		blocks.setLayout(blocksLayout); //Creates block selector layout
-		
 		blocks.add(lblMove); //Add labels to the block selector
+		chkMove.setSelected(true);
+		chkMove.setEnabled(false); //Because the "move" block is needed to complete any level
 		blocks.add(chkMove);
 		lblMove.setFont(new Font(fontType, Font.PLAIN, 25));
 		
@@ -146,16 +147,20 @@ public class BlocksGUI {
 		btnContinue.setFont(new Font(fontType, Font.PLAIN, 30));
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ArrayList<Blokea> blokeak = new ArrayList<Blokea>();
+				ArrayList<String> blokeak = new ArrayList<String>();
+				
+				int blockKop;
+				if (kopList.getSelectedItem() == "Inf") blockKop = -1;
+				else blockKop = (int) kopList.getSelectedItem();
 				
 				//Inserts selected blocks into array
-				if (chkMove.isSelected()) blokeak.add(new Blokea("maze_moveForward", ResourceBundle.getBundle("languages/Etiketak").getString("BlocksMove"), false, false, "blue", ""));
-				if (chkTurn.isSelected()) blokeak.add(new Blokea("maze_turn", ResourceBundle.getBundle("languages/Etiketak").getString("BlocksTurn"), false, false, "blue", ""));
-				if (chkIf.isSelected()) blokeak.add(new Blokea("maze_if", ResourceBundle.getBundle("languages/Etiketak").getString("BlocksIf"), false, false, "green", ""));
-				if (chkIfElse.isSelected()) blokeak.add(new Blokea("maze_ifElse", ResourceBundle.getBundle("languages/Etiketak").getString("BlocksIfElse"), false, false, "green", ""));
-				if (chkRepUntil.isSelected()) blokeak.add(new Blokea("maze_forever", ResourceBundle.getBundle("languages/Etiketak").getString("BlocksRepUntil"), false, false, "red", ""));
+				if (chkMove.isSelected()) blokeak.add("maze_moveForward");
+				if (chkTurn.isSelected()) blokeak.add("maze_turn");
+				if (chkIf.isSelected()) blokeak.add("maze_if");
+				if (chkIfElse.isSelected()) blokeak.add("maze_ifElse");
+				if (chkRepUntil.isSelected()) blokeak.add("maze_forever");
 				
-				facadeImplementation.blokeakTxertatu(blokeak, kopList.getSelectedIndex());
+				facadeImplementation.blokeakTxertatu(blokeak, blockKop);
 				try {
 					facadeImplementation.bihurtu("jokoa", "maze");
 				} catch (KeyNotFoundException e) {

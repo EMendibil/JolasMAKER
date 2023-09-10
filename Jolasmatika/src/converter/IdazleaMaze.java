@@ -38,7 +38,7 @@ public class IdazleaMaze extends Idazlea{
     	textua = aldatu(textua, "    \"desc\": \"callout - Custom hint for Maze game.\",",  pista);
     	Files.write(bidea, textua, StandardCharsets.UTF_8);
     	
-    	//Set the layout of the created maze.
+    	//Set the layout of the created maze and maximum block amount.
     	bidea = Paths.get(blocklyPath + "\\appengine\\maze\\src\\main.js");
     	textua = Files.readAllLines(bidea, StandardCharsets.UTF_8);
     	int[][] map = ((Labirintoa) jolasa).getMapa();
@@ -53,7 +53,14 @@ public class IdazleaMaze extends Idazlea{
     	}
     	mapLayout = mapLayout.substring(0, mapLayout.length()-2) + "]";
     	
-    	textua = aldatu(textua, "// Level 1.", mapLayout);
+    	int blokeKop = jolasa.getBlokeKopurua();
+    	if(blokeKop >= 0) textua = aldatu(textua, "//Maximum Blocks", "[" + blokeKop + "]"); //Overwrite maximum block amount
+    	else textua = aldatu(textua, "//Maximum Blocks", "[Infinity]"); //Overwrite maximum block amount by infinity
+    	textua = aldatu(textua, "// Level 1.", mapLayout); //Overwrite maze layout
     	Files.write(bidea, textua, StandardCharsets.UTF_8);
+    	
+    	//Set the allowed blocks of the created maze
+    	bidea = Paths.get(blocklyPath + "\\appengine\\maze\\src\\html.js");
+    	textua = Files.readAllLines(bidea, StandardCharsets.UTF_8);
     }
 }

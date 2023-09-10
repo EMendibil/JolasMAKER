@@ -11,16 +11,13 @@ import games.Jolasa;
  * 
  */
 public abstract class Bihurtzailea {
-
-	private Jolasa jolasa;
+	protected Idazlea idazlea;
 	
     /**
      * Constructor
-     * @param jolasa
      */
-    public Bihurtzailea() 
+    protected Bihurtzailea() 
     {
-    	this.jolasa = jolasa;
     }
 
     /**

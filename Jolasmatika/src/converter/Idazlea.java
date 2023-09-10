@@ -26,6 +26,7 @@ public abstract class Idazlea {
     
     /**
      * Modifies files that all games share in blockly-games-iruzkinak to create new games.
+     * @param jolasa 
      * @param jolasa. The game that is going to be created
      * @throws KeyNotFoundException 
      * @throws IOException 

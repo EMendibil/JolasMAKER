@@ -9,7 +9,7 @@ public abstract class Jolasa {
 	
     private String hasierakoPista = "this is a clue";
     private int blokeKopurua;
-    private ArrayList<Blokea> onartutakoBlokeak;
+    private ArrayList<String> onartutakoBlokeak;
     		
     /**
      * Constructor
@@ -48,14 +48,14 @@ public abstract class Jolasa {
     /**
      * @return onartutakoBlokeak
      */
-    public ArrayList<Blokea> getOnartutakoBlokeak() {
+    public ArrayList<String> getOnartutakoBlokeak() {
         return onartutakoBlokeak;
     }
 
     /**
      * @param onartutakoBlokeak
      */
-    public void setOnartutakoBlokeak(ArrayList<Blokea> onartutakoBlokeak) {
+    public void setOnartutakoBlokeak(ArrayList<String> onartutakoBlokeak) {
         this.onartutakoBlokeak = onartutakoBlokeak;
     }
 

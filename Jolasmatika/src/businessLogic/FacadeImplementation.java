@@ -11,7 +11,6 @@ import converter.Bihurtzailea;
 import converter.BihurtzaileaHTML;
 import exceptions.KeyNotFoundException;
 import exceptions.WrongLayoutException;
-import games.Blokea;
 import games.Jolasa;
 import games.Labirintoa;
 
@@ -89,7 +88,7 @@ public class FacadeImplementation implements Facade {
      * @param blokeak. A list of the blocks the user has chosen
      * @param kopuruak. The maximum amount of times each block can be used.
      */
-    public void blokeakTxertatu(ArrayList<Blokea> blokeak, int kopurua) {
+    public void blokeakTxertatu(ArrayList<String> blokeak, int kopurua) {
     	this.game.setOnartutakoBlokeak(blokeak);
     	this.game.setBlokeKopurua(kopurua);
     }
