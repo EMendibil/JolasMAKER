@@ -7,6 +7,9 @@ import javax.swing.UIManager;
 import businessLogic.Facade;
 import businessLogic.FacadeImplementation;
 
+/**
+ * The launcher for the application.
+ */
 public class ApplicationLauncher {
 
 	public static void main(String[] args) {

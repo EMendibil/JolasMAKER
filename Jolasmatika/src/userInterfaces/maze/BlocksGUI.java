@@ -19,7 +19,7 @@ import businessLogic.Facade;
 import exceptions.KeyNotFoundException;
 
 /**
- * 
+ * Interface to specify which blocks will be used and their maximum amount
  */
 public class BlocksGUI {
 	

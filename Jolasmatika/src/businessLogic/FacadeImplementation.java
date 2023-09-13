@@ -15,7 +15,7 @@ import games.Jolasa;
 import games.Labirintoa;
 
 /**
- * The interface of the business logic.
+ * An implementation of the business logic.
  */
 public class FacadeImplementation implements Facade {
 

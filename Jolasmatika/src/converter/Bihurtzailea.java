@@ -8,7 +8,7 @@ import exceptions.KeyNotFoundException;
 import games.Jolasa;
 
 /**
- * 
+ * This is the abstract class extended by other converters.
  */
 public abstract class Bihurtzailea {
 	protected Idazlea idazlea;

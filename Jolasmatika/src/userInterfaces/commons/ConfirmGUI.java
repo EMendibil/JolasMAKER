@@ -2,7 +2,7 @@ package userInterfaces.commons;
 
 
 /**
- * 
+ * The interface used to complete and create the game.
  */
 public class ConfirmGUI {
 
