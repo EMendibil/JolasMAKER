@@ -1,0 +1,10 @@
+{
+    "platform": "linux64",
+    "jdk": "C:/Users/PC/Documents/GitHub/JolasMAKER/Jolasmatika/jre-11.0.19.zip",
+    "executable": "JolasMAKER",
+    "classpath": [
+        "JolasMAKER.jar"
+    ],
+    "mainclass": "userInterfaces.commons.ApplicationLauncher",
+    "output": "linApp"
+}
