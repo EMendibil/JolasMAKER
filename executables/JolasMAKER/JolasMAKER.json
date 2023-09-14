@@ -1,0 +1,10 @@
+{
+  "jrePath": "jre",
+  "classPath": [
+    "JolasMAKER.jar"
+  ],
+  "mainClass": "userInterfaces.commons.ApplicationLauncher",
+  "useZgcIfSupportedOs": false,
+  "vmArgs": [
+  ]
+}
