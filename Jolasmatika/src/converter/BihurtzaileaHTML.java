@@ -32,17 +32,9 @@ public class BihurtzaileaHTML extends Bihurtzailea{
      * @param jolasMota. The type of game that will be created ("maze", for example).
      * @throws IOException 
      * @throws KeyNotFoundException 
+     * @throws InterruptedException 
      */
-    public void bihurtu(Jolasa jolasa, String jokoIzena, String jolasMota) throws IOException, KeyNotFoundException {
-
-    	System.out.println("Onartutako blokeak: ");
-    	ArrayList<String> blokeak = jolasa.getOnartutakoBlokeak();
-    	for (String bloke : blokeak) System.out.println(bloke);
-    	
-    	System.out.print("Bloke kopuru maximoa: ");
-    	if(jolasa.getBlokeKopurua() == 0) System.out.print("Infinito");
-    	else System.out.print(jolasa.getBlokeKopurua());
-    	
+    public void bihurtu(Jolasa jolasa, String jokoIzena, String jolasMota) throws IOException, KeyNotFoundException, InterruptedException {
     	
     	String documentsIdazle = System.getProperty("user.home") + "/Documents";
     	String documents = documentsIdazle;
@@ -65,7 +57,7 @@ public class BihurtzaileaHTML extends Bihurtzailea{
         	desktop = desktop.replace('\\', '/').substring(2); //CygWin only accepts regular slashes
     	}
     	else {
-    		eraikitzailea = new ProcessBuilder(); //Uses the command line
+    		eraikitzailea = new ProcessBuilder("/bin/bash"); //Uses the command line
     		
     		starter = "";
     	}
@@ -91,7 +83,8 @@ public class BihurtzaileaHTML extends Bihurtzailea{
 		agindu(aginduIdazlea, "cp -r appengine/" + jolasMota + " " + starter + desktop + "/" + jokoIzena + "/" + jolasMota + "\n");
 		
 		agindu(aginduIdazlea, "exit\n");
-
+		prozesua.waitFor();
+		
     }
     
     private void agindu(BufferedWriter aginduIdazlea, String agindua) throws IOException {

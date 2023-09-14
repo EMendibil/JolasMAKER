@@ -1,4 +1,4 @@
-package userInterfaces.maze;
+package userInterfaces.commons;
 
 import java.awt.Container;
 import java.awt.Font;
@@ -51,6 +51,8 @@ public class BlocksGUI {
 	private JFrame previousFrame;
 	private Facade facadeImplementation;
 	
+	private ConfirmGUI nextFrame;
+	
     /**
      * Constructor
      * @param appFacadeInterface 
@@ -62,7 +64,15 @@ public class BlocksGUI {
     	initialize();
     }
     
-    /**
+    public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	/**
      * Initializes the interface
      */
     private void initialize() {
@@ -161,11 +171,10 @@ public class BlocksGUI {
 				if (chkRepUntil.isSelected()) blokeak.add("maze_forever");
 				
 				facadeImplementation.blokeakTxertatu(blokeak, blockKop);
-				try {
-					facadeImplementation.bihurtu("jokoa", "maze");
-				} catch (KeyNotFoundException e) {
-					e.printStackTrace();
-				}
+				
+				frame.setVisible(false);
+				if(nextFrame != null) nextFrame.getFrame().setVisible(true);
+				else nextFrame = new ConfirmGUI(facadeImplementation, frame);
 			}
 		});
     }

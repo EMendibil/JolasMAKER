@@ -24,7 +24,8 @@ public abstract class Bihurtzailea {
      * Converts game into playable file.
      * @throws IOException 
      * @throws KeyNotFoundException 
+     * @throws InterruptedException 
      */
-    public abstract void bihurtu(Jolasa jolasa, String jokoIzena, String jolasMota) throws IOException, KeyNotFoundException;
+    public abstract void bihurtu(Jolasa jolasa, String jokoIzena, String jolasMota) throws IOException, KeyNotFoundException, InterruptedException;
 
 }

@@ -2,6 +2,7 @@ package businessLogic;
 
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -33,8 +34,10 @@ public interface Facade {
     /**
      * Converts the labyrinth and selected blocks into a playable game
      * @throws KeyNotFoundException 
+     * @throws InterruptedException 
+     * @throws IOException 
      */
-    public void bihurtu(String jokoIzena, String jolasMota) throws KeyNotFoundException;
+    public void bihurtu(String jokoIzena, String hasierakoPista, String jolasMota) throws KeyNotFoundException, InterruptedException, IOException;
 
     /**Changes the designs of the maze and the player character
      * @param diseinuak. A list of the new designs.

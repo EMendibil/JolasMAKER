@@ -95,16 +95,18 @@ public class FacadeImplementation implements Facade {
 
     /**
      * Converts the labyrinth and selected blocks into a playable game
+     * @param jokoIzena. The name the user has chosen for the game
+     * @param hasierakoPista. The starting hint for the game
+     * @param jolasMota. The type of game (maze) that must be created
      * @throws KeyNotFoundException 
+     * @throws InterruptedException 
+     * @throws IOException 
      */
-    public void bihurtu(String jokoIzena, String jolasMota) throws KeyNotFoundException {
+    public void bihurtu(String jokoIzena, String hasierakoPista, String jolasMota) throws KeyNotFoundException, InterruptedException, IOException {
+    	game.setHasierakoPista(hasierakoPista);
     	converter = new BihurtzaileaHTML();
-    	try {
-			converter.bihurtu(game, jokoIzena, jolasMota);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		converter.bihurtu(game, jokoIzena, jolasMota);
+
     }
 
     /**Changes the designs of the maze and the player character

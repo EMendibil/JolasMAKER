@@ -6,15 +6,18 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentListener;
 import java.util.ResourceBundle;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
 import businessLogic.Facade;
 import exceptions.WrongLayoutException;
+import userInterfaces.commons.BlocksGUI;
 import userInterfaces.commons.StartGUI;
 
 /**
@@ -36,7 +39,7 @@ public class LayoutGUI {
 	private JLabel lblError = new JLabel(ResourceBundle.getBundle("languages/Etiketak").getString("LayoutError"), SwingConstants.CENTER);
 	
 	private Facade facadeImplementation;
-	private JFrame nextFrame;
+	private BlocksGUI nextFrame;
 	
     /**
      * Constructor
@@ -46,8 +49,8 @@ public class LayoutGUI {
     	this.facadeImplementation = appFacadeInterface;
     	initialize();
     }
-    
-    /**
+
+	/**
      * Initializes the interface
      */
     private void initialize() {
@@ -61,6 +64,9 @@ public class LayoutGUI {
 		frame.setVisible(true);
 		frame.setResizable(false);
 		frame.setTitle("JolasMAKER");
+		
+    	JScrollPane jsp = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+    	frame.getContentPane().add(jsp);
 		
 		//labels
 		frame.getContentPane().add(title);
@@ -158,7 +164,8 @@ public class LayoutGUI {
 					lblError.setVisible(false);
 					
 					frame.setVisible(false);
-					new BlocksGUI(facadeImplementation, frame);
+					if(nextFrame != null) nextFrame.getFrame().setVisible(true);
+					else nextFrame = new BlocksGUI(facadeImplementation, frame);
 				}
 				catch (WrongLayoutException e) {
 					lblError.setVisible(true);
