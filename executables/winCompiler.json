@@ -1,6 +1,6 @@
 {
     "platform": "windows64",
-    "jdk": "C:/Users/PC/Documents/GitHub/JolasMAKER/Jolasmatika/jre-11.0.19.zip",
+    "jdk": "C:/Users/PC/Documents/GitHub/JolasMAKER/jre-11.0.19.zip",
     "executable": "JolasMAKER",
     "classpath": [
         "JolasMAKER.jar"
