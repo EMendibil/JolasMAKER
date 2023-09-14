@@ -1,11 +1,11 @@
-package userInterfaces.commons;
+package userinterfaces.commons;
 
 import java.util.Locale;
 
 import javax.swing.UIManager;
 
-import businessLogic.Facade;
-import businessLogic.FacadeImplementation;
+import businesslogic.Facade;
+import businesslogic.FacadeImplementation;
 
 /**
  * The launcher for the application.

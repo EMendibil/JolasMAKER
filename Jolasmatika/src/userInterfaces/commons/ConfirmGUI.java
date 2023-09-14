@@ -1,4 +1,4 @@
-package userInterfaces.commons;
+package userinterfaces.commons;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
-import businessLogic.Facade;
+import businesslogic.Facade;
 import exceptions.KeyNotFoundException;
 
 /**

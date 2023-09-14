@@ -1,4 +1,4 @@
-package userInterfaces.commons;
+package userinterfaces.commons;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -12,8 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
-import businessLogic.Facade;
-import userInterfaces.maze.LayoutGUI;
+import businesslogic.Facade;
+import userinterfaces.maze.LayoutGUI;
 
 /**
  * 

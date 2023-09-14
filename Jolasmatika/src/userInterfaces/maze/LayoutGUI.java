@@ -1,4 +1,4 @@
-package userInterfaces.maze;
+package userinterfaces.maze;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -16,10 +16,10 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
-import businessLogic.Facade;
+import businesslogic.Facade;
 import exceptions.WrongLayoutException;
-import userInterfaces.commons.BlocksGUI;
-import userInterfaces.commons.StartGUI;
+import userinterfaces.commons.BlocksGUI;
+import userinterfaces.commons.StartGUI;
 
 /**
  * 

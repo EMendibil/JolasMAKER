@@ -1,4 +1,4 @@
-package userInterfaces.maze;
+package userinterfaces.maze;
 
 /**
  * 

@@ -1,4 +1,4 @@
-package userInterfaces.commons;
+package userinterfaces.commons;
 
 import java.awt.Container;
 import java.awt.Font;
@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
-import businessLogic.Facade;
+import businesslogic.Facade;
 
 /**
  * Interface to specify which blocks will be used and their maximum amount
