@@ -5,11 +5,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import javax.swing.JFileChooser;
 
 import exceptions.KeyNotFoundException;
 import games.Jolasa;
@@ -77,10 +75,10 @@ public abstract class Idazlea {
      * @return The modified text of the file
      * @throws KeyNotFoundException if the String is not found in the file.
      */
-    protected List<String> aldatuBlokeak(List<String> fitxategiTextu, ArrayList<String> txertatu) throws KeyNotFoundException{
+    protected List<String> aldatuBlokeak(List<String> fitxategiTextu, List<String> list) throws KeyNotFoundException{
     	int kokapena = fitxategiTextu.indexOf("//Accepted Blocks") + 1;
     	if(kokapena != -1) {
-    		for(String bloke : txertatu) {
+    		for(String bloke : list) {
     			kokapena++;
     			fitxategiTextu.set(kokapena, blokeFormatu(bloke));
     		}

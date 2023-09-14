@@ -12,6 +12,7 @@ import businessLogic.FacadeImplementation;
  */
 public class ApplicationLauncher {
 
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		Locale.setDefault(new Locale("eu"));
 
@@ -24,7 +25,6 @@ public class ApplicationLauncher {
 
 
 		}catch (Exception e) {
-			//System.out.println("Error in ApplicationLauncher: "+e.toString());
 			e.printStackTrace();
 		}
 

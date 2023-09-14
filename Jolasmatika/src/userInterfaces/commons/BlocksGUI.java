@@ -14,9 +14,9 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 import businessLogic.Facade;
-import exceptions.KeyNotFoundException;
 
 /**
  * Interface to specify which blocks will be used and their maximum amount
@@ -81,7 +81,7 @@ public class BlocksGUI {
     	frame = new JFrame();
     	frame.setSize(1000, 1000);
     	frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
 		frame.setResizable(false);

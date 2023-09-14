@@ -3,14 +3,12 @@ package businessLogic;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 
-import converter.Bihurtzailea;
 import exceptions.KeyNotFoundException;
 import exceptions.WrongLayoutException;
-import games.Jolasa;
 
 /**
  * The interface of the business logic.
@@ -29,7 +27,7 @@ public interface Facade {
      * @param blokeak. A list of the blocks the user has chosen
      * @param kopuruak. The maximum amount of times each block can be used.
      */
-    public void blokeakTxertatu(ArrayList<String> blokeak, int kopurua);
+    public void blokeakTxertatu(List<String> blokeak, int kopurua);
 
     /**
      * Converts the labyrinth and selected blocks into a playable game

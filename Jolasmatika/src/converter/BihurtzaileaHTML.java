@@ -5,10 +5,6 @@ package converter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-
-import javax.swing.JFileChooser;
-
 import exceptions.KeyNotFoundException;
 import games.Jolasa;
 

@@ -71,6 +71,7 @@ public class StartGUI {
 		langList.setFont(new Font(fontType, Font.PLAIN, 25));
 		
 		langList.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 				JComboBox<?> source = (JComboBox<?>) arg0.getSource();
 				int choice = source.getSelectedIndex();

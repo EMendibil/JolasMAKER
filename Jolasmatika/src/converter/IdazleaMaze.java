@@ -5,9 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import exceptions.KeyNotFoundException;
 import games.Jolasa;
@@ -48,15 +46,19 @@ public class IdazleaMaze extends Idazlea{
     	textua = Files.readAllLines(bidea, StandardCharsets.UTF_8);
     	int[][] map = ((Labirintoa) jolasa).getMapa();
     	
-    	String mapLayout = "[";
+    	String mapLayout;
+    	
+    	StringBuilder builder1 = new StringBuilder();
+    	StringBuilder builder2;
     	for (int j = 0; j < 7; j++) {
-    		mapLayout = mapLayout + "[";
+    		builder1.append("[");
+    		builder2 = new StringBuilder();
 			for (int i = 0; i < 7; i++) {
-				mapLayout = mapLayout + map[i][j] + ", ";
+				builder2.append(map[i][j] + ", ");
 			}
-			mapLayout = mapLayout.substring(0, mapLayout.length()-2) + "], ";
+			builder1.append(builder2.toString().substring(0, builder2.toString().length()-2) + "], ");
     	}
-    	mapLayout = mapLayout.substring(0, mapLayout.length()-2) + "]";
+    	mapLayout = "[" + builder1.toString().substring(0, builder1.toString().length()-2) + "]";
     	
     	int blokeKop = jolasa.getBlokeKopurua();
     	if(blokeKop >= 0) textua = aldatu(textua, "//Maximum Blocks", "[" + blokeKop + "]"); //Overwrite maximum block amount

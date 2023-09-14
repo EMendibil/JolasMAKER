@@ -1,6 +1,6 @@
 package games;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -9,7 +9,7 @@ public abstract class Jolasa {
 	
     private String hasierakoPista = "this is a clue";
     private int blokeKopurua;
-    private ArrayList<String> onartutakoBlokeak;
+    private List<String> onartutakoBlokeak;
     		
     /**
      * Constructor
@@ -48,15 +48,15 @@ public abstract class Jolasa {
     /**
      * @return onartutakoBlokeak
      */
-    public ArrayList<String> getOnartutakoBlokeak() {
+    public List<String> getOnartutakoBlokeak() {
         return onartutakoBlokeak;
     }
 
     /**
-     * @param onartutakoBlokeak
+     * @param blokeak
      */
-    public void setOnartutakoBlokeak(ArrayList<String> onartutakoBlokeak) {
-        this.onartutakoBlokeak = onartutakoBlokeak;
+    public void setOnartutakoBlokeak(List<String> blokeak) {
+        this.onartutakoBlokeak = blokeak;
     }
 
 }

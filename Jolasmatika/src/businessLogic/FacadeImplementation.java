@@ -4,6 +4,7 @@ package businessLogic;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 
@@ -20,7 +21,7 @@ import games.Labirintoa;
 public class FacadeImplementation implements Facade {
 
 	private Jolasa game;
-	private Bihurtzailea converter;
+	
 	
     /**Sets the layout of the labyrinth
      * @param mapa the matrix of the layout of the labyrinth
@@ -62,7 +63,7 @@ public class FacadeImplementation implements Facade {
 		if(ondoan(hasiera, bukaera)) zuzena = true;
 		else {
 			int i = 0;
-			while(zuzena == false && i < tartekoak.size()) {
+			while(!zuzena && i < tartekoak.size()) {
 				int[] tarteko = tartekoak.get(i);
 				if(ondoan(hasiera, tarteko)) {tartekoak.remove(i); zuzena = bideOna(tarteko, tartekoak, bukaera);}
 				i++;
@@ -88,7 +89,7 @@ public class FacadeImplementation implements Facade {
      * @param blokeak. A list of the blocks the user has chosen
      * @param kopuruak. The maximum amount of times each block can be used.
      */
-    public void blokeakTxertatu(ArrayList<String> blokeak, int kopurua) {
+    public void blokeakTxertatu(List<String> blokeak, int kopurua) {
     	this.game.setOnartutakoBlokeak(blokeak);
     	this.game.setBlokeKopurua(kopurua);
     }
@@ -103,6 +104,7 @@ public class FacadeImplementation implements Facade {
      * @throws IOException 
      */
     public void bihurtu(String jokoIzena, String hasierakoPista, String jolasMota) throws KeyNotFoundException, InterruptedException, IOException {
+     Bihurtzailea converter;
     	game.setHasierakoPista(hasierakoPista);
     	converter = new BihurtzaileaHTML();
 		converter.bihurtu(game, jokoIzena, jolasMota);

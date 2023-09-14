@@ -1,21 +1,18 @@
 package userInterfaces.commons;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 import businessLogic.Facade;
 import exceptions.KeyNotFoundException;
@@ -43,7 +40,7 @@ public class ConfirmGUI {
 	private JTextField txtName = new JTextField();
 	private JTextField txtHint = new JTextField();
 	
-	private JLabel loadIcon;
+	//private JLabel loadIcon; Unused, because it causes games to create slower
 	
 	private JFrame previousFrame;
 	private Facade facadeImplementation;
@@ -76,7 +73,7 @@ public class ConfirmGUI {
     	frame = new JFrame();
     	frame.setSize(1000, 1000);
     	frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
 		frame.setResizable(false);
@@ -112,13 +109,6 @@ public class ConfirmGUI {
 		frame.getContentPane().add(lblHint);
 		txtHint.setBounds(275, 500, 400, 30);
 		frame.getContentPane().add(txtHint);
-		
-		//loadIcon
-		Icon icon = new ImageIcon(this.getClass().getResource("/Loading.gif"));
-		loadIcon = new JLabel(icon);
-		loadIcon.setBounds(250, 250, 500, 500);
-		loadIcon.setVisible(false);
-		frame.getContentPane().add(loadIcon);
 		
 		//btnBack
 		frame.getContentPane().add(btnBack);
