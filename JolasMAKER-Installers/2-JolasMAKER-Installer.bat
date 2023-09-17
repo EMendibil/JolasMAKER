@@ -5,5 +5,5 @@ tar -xf JolasMAKER.zip
 tar -xf jre-11.0.19.zip
 mkdir C:\Program_Files\Java
 
-C:\cygwin64\bin\bash --login -c "cd /cygdrive/c/Users/$USER/Desktop; unzip -j jre-11.0.19.zip; rm -r /cygdrive/c/Program_Files/Java/jre-11.0.19; mv -f jre-11.0.19 /cygdrive/c/Program_Files/Java/jre-11.0.19; export PATH=$PATH:\"C:/Program_Files/Java/jre-11.0.19/bin/\"; cd /cygdrive/c/Users/$USER/Documents/blockly-games-iruzkinak; make deps"
+C:\cygwin64\bin\bash --login -c "cd /cygdrive/c/Users/$USER/Desktop; rm -r /cygdrive/c/Program_Files/Java/jre-11.0.19; mv -f jre-11.0.19 /cygdrive/c/Program_Files/Java/jre-11.0.19; export PATH=$PATH:\"C:/Program_Files/Java/jre-11.0.19/bin/\"; cd /cygdrive/c/Users/$USER/Documents/blockly-games-iruzkinak; make deps"
 del JolasMAKER.zip "C:\Program_Files\Java\jre-11.0.19.zip" jre-11.0.19.zip blockly-games-iruzkinak-master
