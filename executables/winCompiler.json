@@ -5,6 +5,6 @@
     "classpath": [
         "JolasMAKER.jar"
     ],
-    "mainclass": "userInterfaces.commons.ApplicationLauncher",
+    "mainclass": "userinterfaces.commons.ApplicationLauncher",
     "output": "winApp"
 }

@@ -37,9 +37,10 @@ public class FacadeImplementation implements Facade {
     * @returns a boolean that is true if the layout is correct, and false otherwise
     */
     private boolean labirintoOna(int[][] mapa) {
+    
     	int[] hasiera = new int[2];
 
-    	ArrayList<int[]> tartekoak = new ArrayList<int[]>();
+    	ArrayList<int[]> tartekoak = new ArrayList<>();
     	
     	int[] bukaera = new int[2];
     	for (int i = 0; i < 7; i++) {
@@ -49,6 +50,7 @@ public class FacadeImplementation implements Facade {
     			if(mapa[i][j] == 3) {bukaera[0] = i; bukaera[1] = j;}
     		}
     	}
+    	
     	return bideOna(hasiera, tartekoak, bukaera);
     }
 
@@ -60,12 +62,18 @@ public class FacadeImplementation implements Facade {
      */
 	private boolean bideOna(int[] hasiera, ArrayList<int[]> tartekoak, int[] bukaera) {
 		boolean zuzena = false;
+		ArrayList<int[]> lag;
 		if(ondoan(hasiera, bukaera)) zuzena = true;
 		else {
 			int i = 0;
 			while(!zuzena && i < tartekoak.size()) {
 				int[] tarteko = tartekoak.get(i);
-				if(ondoan(hasiera, tarteko)) {tartekoak.remove(i); zuzena = bideOna(tarteko, tartekoak, bukaera);}
+				if(ondoan(hasiera, tarteko)) {
+					lag = tartekoak;
+					lag.remove(i); 
+					//Checks found possible path, and any extra path that can be accessed from "hasiera".
+					zuzena = bideOna(tarteko, lag, bukaera) || bideOna(hasiera, lag, bukaera); 
+				}
 				i++;
 			}
 		}

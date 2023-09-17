@@ -3,11 +3,11 @@ package games;
 import java.util.List;
 
 /**
- * 
+ * This class is used to store information that all games share.
  */
 public abstract class Jolasa {
 	
-    private String hasierakoPista = "this is a clue";
+    private String hasierakoPista;
     private int blokeKopurua;
     private List<String> onartutakoBlokeak;
     		

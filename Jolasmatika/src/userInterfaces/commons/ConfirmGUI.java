@@ -137,21 +137,22 @@ public class ConfirmGUI {
 					
 					try {
 						facadeImplementation.bihurtu(name, hint, "maze");
+						btnBack.setVisible(false);
+						btnContinue.setVisible(false);
+						lblName.setVisible(false);
+						lblHint.setVisible(false);
+						lblError.setVisible(false);
+						txtName.setVisible(false);
+						txtHint.setVisible(false);
+						
+						instructions.setText(ResourceBundle.getBundle(bundleSource).getString("ConfirmComplete"));
+						//loadIcon.setVisible(true); Unused for now, because it makes creating the game too slow.
 					} catch (KeyNotFoundException | InterruptedException | IOException e) {
 						lblError.setText(ResourceBundle.getBundle(bundleSource).getString("ConfirmError"));
 						lblError.setVisible(true);
 						Thread.currentThread().interrupt();
 					}
-					btnBack.setVisible(false);
-					btnContinue.setVisible(false);
-					lblName.setVisible(false);
-					lblHint.setVisible(false);
-					lblError.setVisible(false);
-					txtName.setVisible(false);
-					txtHint.setVisible(false);
-					
-					instructions.setText(ResourceBundle.getBundle(bundleSource).getString("ConfirmComplete"));
-					//loadIcon.setVisible(true); Unused for now, because it makes creating the game too slow.
+
 				}		
 			}
 		});

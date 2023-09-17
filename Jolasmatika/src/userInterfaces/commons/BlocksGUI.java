@@ -157,7 +157,7 @@ public class BlocksGUI {
 		btnContinue.setFont(new Font(fontType, Font.PLAIN, 30));
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ArrayList<String> blokeak = new ArrayList<String>();
+				ArrayList<String> blokeak = new ArrayList<>();
 				
 				int blockKop;
 				if (kopList.getSelectedItem() == "Inf") blockKop = -1;
