@@ -1,0 +1,5 @@
+java -jar packr-all-4.0.0.jar winCompiler.json
+
+Ziurrenik "winCompiler.json" fitxategian "jdk" atalean zure ordenagailuko java bertsiora
+bidea jarri beharko duzu. Gainera, "JolasMAKER.jar" fitxategia packr dagoen karpeta berean
+egon behar du egoki konpilatzeko (edo "winCompiler.json" fitxategian "classpath" aldatu).

@@ -6,5 +6,5 @@
         "JolasMAKER.jar"
     ],
     "mainclass": "userinterfaces.commons.ApplicationLauncher",
-    "output": "winApp"
+    "output": "JolasMAKER"
 }

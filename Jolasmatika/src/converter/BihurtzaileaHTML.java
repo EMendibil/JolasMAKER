@@ -62,7 +62,7 @@ public class BihurtzaileaHTML extends Bihurtzailea{
 		
 		BufferedWriter aginduIdazlea = new BufferedWriter(new OutputStreamWriter(prozesua.getOutputStream()));
 		
-		agindu(aginduIdazlea, "export PATH=$PATH:\"C:/Program_Files/Java/jre-11.0.19/bin/\"\n");	
+		agindu(aginduIdazlea, "export PATH=$PATH:\"C:/Users/$USER/Documents/Java/jre-11.0.19/bin/\"\n");	
 		
 		agindu(aginduIdazlea, "rm -rf " + starter + desktop + "/" + jokoIzena + "\n");	
 		

@@ -11,3 +11,9 @@ rm /home/$USER/Documents/blockly-games-iruzkinak
 mv -f blockly-games-iruzkinak-master /home/$USER/Documents/blockly-games-iruzkinak
 cd /home/$USER/Documents/blockly-games-iruzkinak
 make deps
+
+wget https://github.com/EMendibil/JolasMAKER/archive/master.zip
+unzip -j master.zip JolasMAKER-master/executables/JolasMAKER.zip
+unzip JolasMAKER.zip
+rm master.zip
+rm JolasMAKER.zip
